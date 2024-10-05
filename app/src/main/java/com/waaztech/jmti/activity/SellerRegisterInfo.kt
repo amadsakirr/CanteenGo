@@ -3,6 +3,7 @@ package com.waaztech.jmti.activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -23,10 +24,13 @@ class SellerRegisterInfo : AppCompatActivity() {
 
         val btnNext = findViewById<Button>(R.id.btnNext)
         val btnBack = findViewById<Button>(R.id.btnBack)
+        val edtIC = findViewById<EditText>(R.id.edtIcInput)
+        val edtName = findViewById<EditText>(R.id.edtNameInput)
 
         btnNext.setOnClickListener {
             val intent = Intent(this, SellerShopInfo::class.java)
-            intent.putExtra("key", "")
+            intent.putExtra("ic", edtIC.text.toString())
+            intent.putExtra("name", edtName.text.toString())
             startActivity(intent)
         }
 

@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="56dp"
     tools:context=".ui.home.HomeFragment">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -13,6 +14,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_width="match_parent"
         android:layout_below="@id/edtSearch"
+        android:visibility="gone"
         android:layout_height="56dp">
 
     </androidx.recyclerview.widget.RecyclerView>
@@ -21,7 +23,7 @@
         android:id="@+id/edtSearch"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_centerHorizontal="true"
         android:hint="@string/search_product">
 
@@ -32,12 +34,26 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.carousel.auna.ImageSlider
+        android:id="@+id/image_slider"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        app:auto_cycle="true"
+        android:gravity="center"
+        android:layout_below="@id/recyclerCat"
+        app:placeholder="@drawable/placeholder"
+        app:error_image="@drawable/error"
+        app:selected_dot="@drawable/default_selected_dot"
+        app:unselected_dot="@drawable/default_unselected_dot"
+        app:period="4000"
+        app:delay="5"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerProduct"
         app:spanCount="2"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         android:layout_width="match_parent"
-        android:layout_below="@id/recyclerCat"
+        android:layout_below="@id/image_slider"
         android:layout_height="match_parent">
 
     </androidx.recyclerview.widget.RecyclerView>

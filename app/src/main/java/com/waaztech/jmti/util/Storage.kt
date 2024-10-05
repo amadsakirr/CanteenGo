@@ -11,6 +11,10 @@ class Storage {
         Stash.put("userId", id)
     }
 
+    fun saveSellerId(id: String){
+        Stash.put("sellerId", id)
+    }
+
     fun getId(): String{
         return Stash.getString("userId", "")
     }
@@ -38,7 +42,7 @@ class Storage {
     }
 
     fun getSingleProduct(id: String): Product?{
-        for(product in getProducts()){
+        for(product in returnAllProd()){
             if(product.id == id){
                 return product
             }
@@ -75,7 +79,7 @@ class Storage {
         Stash.put("Sellers", sellers)
     }
 
-    fun getSellers(): List<User>{
+    fun getSellers(): List<Seller>{
         return try {
             Stash.getArrayList(
                 "Sellers",
@@ -84,5 +88,72 @@ class Storage {
         } catch (e: Exception){
             emptyList()
         }
+    }
+
+    fun returnAllProd(): List<Product>{
+
+        val data = Storage().getProducts().toMutableList()
+        data.add(
+            Product(
+                id = "CSR Sugar",
+                price = "7.80",
+                text = "CSR Sugar",
+                image = "https://csr-malaysia.com.my/storage/2023/08/CSR_BetterWhite_Jernih.png",
+                category = "food",
+                description = "Sugar"
+            )
+        )
+        data.add(
+            Product(
+                id = "CSR Sugar",
+                price = "7.80",
+                text = "CSR Sugar",
+                image = "https://www.wcrf-uk.org/wp-content/uploads/2021/06/Kiwi_A-Z-Fruit13-300x300.jpg",
+                category = "food",
+                description = "Sugar"
+            )
+        )
+        data.add(
+            Product(
+                id = "CSR Sugar",
+                price = "7.80",
+                text = "CSR Sugar",
+                image = "https://www.wcrf-uk.org/wp-content/uploads/2021/06/Kiwi_A-Z-Fruit13-300x300.jpg",
+                category = "food",
+                description = "Sugar"
+            )
+        )
+        data.add(
+            Product(
+                id = "CSR Sugar",
+                price = "7.80",
+                text = "CSR Sugar",
+                image = "https://www.wcrf-uk.org/wp-content/uploads/2021/06/Kiwi_A-Z-Fruit13-300x300.jpg",
+                category = "food",
+                description = "Sugar"
+            )
+        )
+        data.add(
+            Product(
+                id = "CSR Sugar",
+                price = "7.80",
+                text = "CSR Sugar",
+                image = "https://www.wcrf-uk.org/wp-content/uploads/2021/06/Kiwi_A-Z-Fruit13-300x300.jpg",
+                category = "food",
+                description = "Sugar"
+            )
+        )
+        data.add(
+            Product(
+                id = "CSR Sugar",
+                price = "7.80",
+                text = "CSR Sugar",
+                image = "https://www.wcrf-uk.org/wp-content/uploads/2021/06/Kiwi_A-Z-Fruit13-300x300.jpg",
+                category = "food",
+                description = "Sugar"
+            )
+        )
+
+        return data
     }
 }

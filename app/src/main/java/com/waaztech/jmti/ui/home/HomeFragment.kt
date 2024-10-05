@@ -8,6 +8,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.carousel.auna.models.SlideModel
 import com.waaztech.jmti.R
 import com.waaztech.jmti.databinding.FragmentHomeBinding
 import com.waaztech.jmti.model.Category
@@ -41,8 +42,16 @@ class HomeFragment : Fragment() {
         category.add(Category("5", "Toys"));
 
 
-        binding.recyclerProduct.adapter = ProductAdapter(addDemoProduct(), this)
+        binding.recyclerProduct.adapter = ProductAdapter(Storage().returnAllProd(), this)
         binding.recyclerCat.adapter = CategoryAdapter(category)
+
+        val imageList = ArrayList<SlideModel>()
+        imageList.add(SlideModel("https://img.freepik.com/free-psd/fashion-sale-banner-template_23-2148935598.jpg?semt=ais_hybrid","Buy One get two for free",true))
+        imageList.add(SlideModel("https://as2.ftcdn.net/v2/jpg/02/52/71/83/1000_F_252718372_G8xqAJCiktFD2T3vrcZkRjO9HOoc5afB.jpg","Eat at 5% price reduction on Fridays",true))
+        imageList.add(SlideModel("https://img.freepik.com/free-vector/gradient-sale-background_23-2148934477.jpg","Come and enjoy with your family",true))
+
+        binding.imageSlider.setImageList(imageList)
+        binding.imageSlider.startSliding(3000)
 
         return root
     }
@@ -50,42 +59,6 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    private fun addDemoProduct(): List<Product> {
-        val data = Storage().getProducts().toMutableList()
-        data.add(
-            Product(
-                id = "CSR Sugar",
-                price = "7.80",
-                text = "CSR Sugar",
-                image = "https://csr-malaysia.com.my/storage/2023/08/CSR_BetterWhite_Jernih.png",
-                category = "food",
-                description = "Sugar"
-            )
-        )
-        data.add(
-            Product(
-                id = "CSR Sugar",
-                price = "7.80",
-                text = "CSR Sugar",
-                image = "https://www.wcrf-uk.org/wp-content/uploads/2021/06/Kiwi_A-Z-Fruit13-300x300.jpg",
-                category = "food",
-                description = "Sugar"
-            )
-        )
-        data.add(
-            Product(
-                id = "CSR Sugar",
-                price = "7.80",
-                text = "CSR Sugar",
-                image = "https://www.wcrf-uk.org/wp-content/uploads/2021/06/Kiwi_A-Z-Fruit13-300x300.jpg",
-                category = "food",
-                description = "Sugar"
-            )
-        )
-
-        return data
     }
 
     fun navigateToDetail(id: String){

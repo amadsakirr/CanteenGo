@@ -22,6 +22,7 @@ class DashboardFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private var toastShown = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,6 +30,11 @@ class DashboardFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val dashboardViewModel = ViewModelProvider(this)[DashboardViewModel::class.java]
+
+        if(!toastShown) {
+            Toast.makeText(context, "New order received!", Toast.LENGTH_LONG).show()
+            toastShown = true
+        }
 
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root

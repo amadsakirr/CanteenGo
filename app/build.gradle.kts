@@ -57,5 +57,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.coil.compose)
     implementation(libs.gson)
-
+    implementation(libs.carousels.kotlin)
+    implementation(libs.picasso)
 }

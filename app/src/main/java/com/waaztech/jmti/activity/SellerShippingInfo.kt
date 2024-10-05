@@ -9,6 +9,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.waaztech.jmti.R
 import com.waaztech.jmti.SellerLoginActivity
+import com.waaztech.jmti.model.Seller
+import com.waaztech.jmti.util.Storage
 
 class SellerShippingInfo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +28,25 @@ class SellerShippingInfo : AppCompatActivity() {
 
         btnNext.setOnClickListener {
             val intent = Intent(this, SellerLoginActivity::class.java)
-            intent.putExtra("key", "")
+            val seller = getIntent().getStringExtra("email")?.let { it1 ->
+                getIntent().getStringExtra("name")?.let { it2 ->
+                    getIntent().getStringExtra("phone")?.let { it3 ->
+                        getIntent().getStringExtra("shop")?.let { it4 ->
+                            getIntent().getStringExtra("add")?.let { it5 ->
+                                Seller(email = it1, name = it2,
+                                    password = "", phoneNumber = it3,
+                                    shopName = it4, shopAddress = it5
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+            val sellers = mutableListOf<Seller>()
+            if (seller != null) {
+                sellers.add(seller)
+            }
+            Storage().saveSellers(sellers)
             startActivity(intent)
         }
 
