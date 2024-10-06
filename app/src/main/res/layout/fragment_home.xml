@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_below="@id/edtSearch"
         android:visibility="gone"
-        android:layout_height="56dp">
+        android:layout_height="wrap_content">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -28,6 +28,7 @@
         android:hint="@string/search_product">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtSearchInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />

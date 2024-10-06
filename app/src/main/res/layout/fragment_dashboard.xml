@@ -1,120 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="56dp"
     tools:context=".ui.dashboard.DashboardFragment">
 
-    <TextView
-        android:id="@+id/newProdTitle"
-        android:gravity="center"
-        android:layout_margin="10dp"
-        android:background="@drawable/rounded_rect_orange"
-        android:text="@string/add_new_product"
-        android:textSize="18sp"
-        android:padding="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <ScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
 
-    <ImageView
-        android:layout_centerHorizontal="true"
-        android:id="@+id/imgProd"
-        android:layout_below="@+id/newProdTitle"
-        android:layout_width="120dp"
-        android:layout_height="120dp"/>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_below="@+id/imgProd"
-        android:id="@+id/edtUrl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="16dp"
-        android:hint="@string/product_image_url">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtUrlInput"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/newProdTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded_rect_orange"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/add_new_product"
+                android:textSize="18sp" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_below="@+id/edtUrl"
-        android:id="@+id/edtProdName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="16dp"
-        android:hint="@string/product_name">
+            <ImageView
+                android:id="@+id/imgProd"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/newProdTitle"
+                android:layout_centerHorizontal="true" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtProdNameInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edtUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgProd"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="16dp"
+                android:hint="@string/product_image_url">
 
-    </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtUrlInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_below="@+id/edtProdName"
-        android:id="@+id/edtCat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="16dp"
-        android:hint="@string/product_category">
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtCatInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edtProdName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edtUrl"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="16dp"
+                android:hint="@string/product_name">
 
-    </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtProdNameInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_below="@+id/edtCat"
-        android:id="@+id/edtProdDesc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="16dp"
-        android:hint="@string/product_description">
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtProdDescInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edtCat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edtProdName"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="16dp"
+                android:hint="@string/product_category">
 
-    </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtCatInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_below="@+id/edtProdDesc"
-        android:id="@+id/edtPrice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="16dp"
-        android:hint="@string/product_price">
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtPriceInput"
-            android:inputType="numberDecimal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edtProdDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edtCat"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="16dp"
+                android:hint="@string/product_description">
 
-    </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtProdDescInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnConfirm"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:layout_marginBottom="60dp"
-        android:background="@drawable/rounded_rect_orange"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/confirm"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edtPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edtProdDesc"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="16dp"
+                android:hint="@string/product_price">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtPriceInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnConfirm"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="56dp"
+                android:layout_below="@id/edtPrice"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/rounded_rect_orange"
+                android:padding="16dp"
+                android:text="@string/confirm" />
+        </RelativeLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

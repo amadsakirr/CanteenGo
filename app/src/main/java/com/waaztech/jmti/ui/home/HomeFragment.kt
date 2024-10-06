@@ -1,10 +1,13 @@
 package com.waaztech.jmti.ui.home
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -32,6 +35,21 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        binding.edtSearchInput.doOnTextChanged { text, start, before, count ->
+            val allProducts = Storage().returnAllProd()
+            val searchedProduct = mutableListOf<Product>()
+
+            if(text != null) {
+                for (prod in allProducts) {
+                    if (prod.text.contains(text, true)) {
+                        searchedProduct.add(prod)
+                    }
+                }
+            }
+
+            binding.recyclerProduct.adapter = ProductAdapter(searchedProduct, this)
+        }
 
         val category = ArrayList<Category>()
 

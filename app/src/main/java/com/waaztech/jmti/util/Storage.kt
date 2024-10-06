@@ -15,6 +15,10 @@ class Storage {
         Stash.put("sellerId", id)
     }
 
+    fun getSellerId(): String{
+        return Stash.getString("sellerId", "")
+    }
+
     fun getId(): String{
         return Stash.getString("userId", "")
     }
@@ -75,6 +79,17 @@ class Storage {
         return User("","","","")
     }
 
+    fun getSpecificSeller(id: String): Seller{
+        for(user in getSellers()){
+            if(user.email == id){
+                return user
+            }
+        }
+
+        return Seller("","","","", "", "")
+    }
+
+
     fun saveSellers(sellers: List<Seller>){
         Stash.put("Sellers", sellers)
     }
@@ -105,52 +120,42 @@ class Storage {
         )
         data.add(
             Product(
-                id = "CSR Sugar",
-                price = "7.80",
-                text = "CSR Sugar",
-                image = "https://www.wcrf-uk.org/wp-content/uploads/2021/06/Kiwi_A-Z-Fruit13-300x300.jpg",
+                id = "Chocolate Cake",
+                price = "89.90",
+                text = "Chocolate Cake",
+                image = "https://sprinkles.com/cdn/shop/products/DarkChocolate_Whole8-inchLayerCake_Shopify1024x1024.png?v=1620409691",
                 category = "food",
-                description = "Sugar"
+                description = "Cake!"
             )
         )
         data.add(
             Product(
-                id = "CSR Sugar",
-                price = "7.80",
-                text = "CSR Sugar",
-                image = "https://www.wcrf-uk.org/wp-content/uploads/2021/06/Kiwi_A-Z-Fruit13-300x300.jpg",
-                category = "food",
-                description = "Sugar"
+                id = "Rubber Duck",
+                price = "3.20",
+                text = "Rubber Duck",
+                image = "https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fwww.ft.com%2F__origami%2Fservice%2Fimage%2Fv2%2Fimages%2Fraw%2Fhttps%253A%252F%252Fd1e00ek4ebabms.cloudfront.net%252Fproduction%252F71611bc2-1cd9-484d-9a64-5fa70091c4e8.png%3Fsource%3Dnext-article%26fit%3Dscale-down%26quality%3Dhighest%26width%3D700%26dpr%3D1?source=next-opengraph&fit=scale-down&width=900",
+                category = "toy",
+                description = "Rubber Duck"
             )
         )
         data.add(
             Product(
-                id = "CSR Sugar",
-                price = "7.80",
-                text = "CSR Sugar",
-                image = "https://www.wcrf-uk.org/wp-content/uploads/2021/06/Kiwi_A-Z-Fruit13-300x300.jpg",
-                category = "food",
-                description = "Sugar"
+                id = "Formal Shoe",
+                price = "67.90",
+                text = "Shoe",
+                image = "https://p3.aprimocdn.net/ecco/b5e6f5c4-4aec-46a4-9c99-b08b00bb1b59/520314-01001-m_eCom.png?auto=webp&width=960&quality=95ng",
+                category = "fashion",
+                description = "Dark Formal Shoe"
             )
         )
         data.add(
             Product(
-                id = "CSR Sugar",
-                price = "7.80",
-                text = "CSR Sugar",
-                image = "https://www.wcrf-uk.org/wp-content/uploads/2021/06/Kiwi_A-Z-Fruit13-300x300.jpg",
-                category = "food",
-                description = "Sugar"
-            )
-        )
-        data.add(
-            Product(
-                id = "CSR Sugar",
-                price = "7.80",
-                text = "CSR Sugar",
-                image = "https://www.wcrf-uk.org/wp-content/uploads/2021/06/Kiwi_A-Z-Fruit13-300x300.jpg",
-                category = "food",
-                description = "Sugar"
+                id = "Jersey",
+                price = "16.50",
+                text = "Jersey",
+                image = "https://www.spized.com/media/30/1a/2b/1639578261/esports-trikot2-min.png",
+                category = "fashion",
+                description = "Jersey"
             )
         )
 

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.waaztech.jmti.databinding.FragmentSellerProfileBinding
+import com.waaztech.jmti.util.Storage
 
 class SellerProfileFragment : Fragment() {
 
@@ -25,6 +26,13 @@ class SellerProfileFragment : Fragment() {
 
         _binding = FragmentSellerProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        val id = Storage().getSellerId()
+        val seller = Storage().getSpecificSeller(id)
+
+        binding.txtName.text = seller.name
+        binding.txtEmail.text = seller.email
+        binding.txtPhoneNumber.text = seller.phoneNumber
+        binding.txtShopAddress.text = seller.shopAddress
 
         binding.btnLogout.setOnClickListener {
             activity?.finish()

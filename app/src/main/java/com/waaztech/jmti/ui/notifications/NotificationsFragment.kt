@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.waaztech.jmti.databinding.FragmentNotificationsBinding
+import com.waaztech.jmti.ui.home.OrderAdapter
+import com.waaztech.jmti.util.Storage
 
 class NotificationsFragment : Fragment() {
 
@@ -27,7 +29,7 @@ class NotificationsFragment : Fragment() {
 
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
+        binding.recyclerProduct.adapter = OrderAdapter(Storage().getBuyerOrder())
 //        val textView: TextView = binding.textNotifications
 //        notificationsViewModel.text.observe(viewLifecycleOwner) {
 //            textView.text = it
