@@ -1,4 +1,4 @@
-package com.waaztech.jmti.util
+package com.canteenGo.jmti.util
 
 import com.waaztech.jmti.model.Product
 import com.waaztech.jmti.model.Seller
